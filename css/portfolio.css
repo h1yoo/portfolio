@@ -194,8 +194,7 @@ nav p {
 @media (max-width:600px) {
     nav {padding: 10pt 5pt 5pt 5pt;}
     nav>div {flex-direction: column;}
-    nav p {margin-bottom: 5px;}
-    nav>div>p {margin-left: 5px;}
+    nav p {margin-bottom: 5px; margin-left: 10px;}
 
     #menu {display: flex; justify-content: space-evenly;}
     #menu a:first-child {margin-left: 0;}
