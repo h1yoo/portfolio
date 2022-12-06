@@ -16,22 +16,6 @@ $(document).ready(function(){
         });
     }
     //타자치는 효과
-    const $typing = "안녕하세요.\n유혜원의 포트폴리오입니다.";
-    //console.log($typing[7]);  //홍
-    const tyLen = $typing.length;
-    console.log($typing.length); //$typing이라는 상수의 문자 개수 = 21
-    let i = 0;
-    let txt = "";
-    function type() {
-        if(i < tyLen) {
-            txt += $typing[i];
-            //$("#typing").text(txt); javascript하기 위해 지움. 이것은 jQery
-            document.querySelector("#typing").innerText = txt;
-            i++;
-            setTimeout(type, 180);
-        }
-    }
-    type();
     if( $(window).width() <= 500 ) {  //모바일에서 타자치는 효과
         const $typing = "안녕하세요.\n유혜원의\n포트폴리오입니다.";
         const tyLen = $typing.length;
@@ -45,6 +29,24 @@ $(document).ready(function(){
                 setTimeout(type, 190);
             }
         }
+    }
+    else {
+        const $typing = "안녕하세요.\n유혜원의 포트폴리오입니다.";
+        //console.log($typing[7]);  //홍
+        const tyLen = $typing.length;
+        console.log($typing.length); //$typing이라는 상수의 문자 개수 = 21
+        let i = 0;
+        let txt = "";
+        function type() {
+            if(i < tyLen) {
+                txt += $typing[i];
+                //$("#typing").text(txt); javascript하기 위해 지움. 이것은 jQery
+                document.querySelector("#typing").innerText = txt;
+                i++;
+                setTimeout(type, 180);
+            }
+        }
+        type();
     }
 
     //스크롤바를 내렸을 때의 효과 (== 스크롤이벤트 감지!)
