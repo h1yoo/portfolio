@@ -196,10 +196,6 @@ nav p {
     nav>div {flex-direction: column;}
     nav p {margin-bottom: 5px;}
     nav>div>p {margin-left: 5px;}
-    
-    #top {height: 100vh;
-          background: url('../images/bg-1.jpg') no-repeat fixed right top/ cover;
-    }
 
     #menu {display: flex; justify-content: space-evenly;}
     #menu a:first-child {margin-left: 0;}
