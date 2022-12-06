@@ -108,6 +108,7 @@ nav p {
               font-weight: 500; font-size: 1rem; display: inline-block; /*반응형에서 글씨가 잘려서 다음줄로 가는 게 싫으면 display:inline-block;*/
               margin-bottom: 5pt;
 }
+#portfolio div>a:nth-of-type(2) {margin-left: 5pt; margin-right: 5pt;}
 #portfolio a:hover {background: #555; color: white;}
 /*#portfolio img {transform: translateY(-40pt);} 모든 이미지를 한 번에 위로 올리려 했는데, 그러면 서서히 올라가는 효과가 이상한 것 같아서 지움*/
 /*첫 번째 포폴*/
@@ -197,8 +198,12 @@ nav p {
     #menu a {font-size:0.9rem;}
     #typing {font-size: 2rem;}
 
+    .area {padding-top: 17vh;}
+    .area>h2 {margin-bottom: 7vh;}
+
     #about>div {flex-direction: column; padding: 0 10pt;}
     #about img {width: 200px;}
+    #about h3 {padding-top: 5vh;}
     #skill label {width: 38%;}
     #skill progress {width: 58%;}
 
@@ -212,15 +217,15 @@ nav p {
     #portfolio li {flex-direction: column;}
     #portfolio a {padding: 4pt 6pt 5pt 6pt;}
 
-    #port1 {padding-top: 10px; transform: translateY(0); opacity: 1;}
+    #port1 {padding-top: 5vh; transform: translateY(0); opacity: 1;}
 
     #port2 {padding-bottom: 100pt;}
     #port2 div.left {transform: translateX(0);}
-    #port2 div.right {transform: translate(0, 30pt);}
+    #port2 div.right {transform: translate(0, 10vh);}
 
-    #port3 {padding-top: 3vh;}
+    #port3 {padding-top: 5vh;}
     #port3 img {transform: translateY(0);}
-    #port3 div.left {padding-top: 30pt; transform: scale(1);}
+    #port3 div.left {padding-top: 5vh; transform: scale(1);}
     #port3 div.right {transform: scale(1);}
 
     #event>div>div {width: 90%;}

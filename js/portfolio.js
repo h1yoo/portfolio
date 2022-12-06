@@ -32,6 +32,20 @@ $(document).ready(function(){
         }
     }
     type();
+    if( $(window).width() <= 600 ) {  //모바일에서 타자치는 효과
+        const $typing = "안녕하세요.\n유혜원의\n포트폴리오입니다.";
+        const tyLen = $typing.length;
+        let i=0;
+        let txt = "";
+        function type() {
+            if( i < tyLen ) {
+                txt += $typing[i];
+                document.querySelector("#typing").innerText = txt;
+                i++;
+                setTimeout(type, 190);
+            }
+        }
+    }
 
     //스크롤바를 내렸을 때의 효과 (== 스크롤이벤트 감지!)
     const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
@@ -42,7 +56,7 @@ $(document).ready(function(){
     let st = 0;  //scrollTop 변수 st의 값 0으로 설정
     $(window).scroll(function(){
         st = $(window).scrollTop();
-        //console.log(st);
+        console.log(st);
         if( st >= aboutTop ) {
             //About에서 오른쪽 "skill" bar 애니메이션
             $("#photo progress").delay(100).animate({value : 85});
@@ -68,7 +82,7 @@ $(document).ready(function(){
         //클릭한 썸네일이미지 주소를 가져온다
         const thumb = $(this).children("img").attr("src");
         //가져온 주소를 큰이미지주소로 변경한다.
-        const change = thumb.replace('images/', 'images/big/');
+        const change = thumb.replace('images/', '../photoshop&illust/');
         //변경한 이미지주소를 큰이미지에 대입한다.
         $("#popup img").attr("src", change);
 
