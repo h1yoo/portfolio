@@ -32,7 +32,7 @@ $(document).ready(function(){
         }
     }
     type();
-    if( $(window).width() <= 600 ) {  //모바일에서 타자치는 효과
+    if( $(window).width() <= 500 ) {  //모바일에서 타자치는 효과
         const $typing = "안녕하세요.\n유혜원의\n포트폴리오입니다.";
         const tyLen = $typing.length;
         let i=0;
