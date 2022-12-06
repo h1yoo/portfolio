@@ -4,7 +4,7 @@ $(document).ready(function(){
     if( $(window).width()<=600 ) {
         $("nav").addClass("act");
     }
-    else {  //휴대폰보다 큰 화면일 때는 스크롤 높이에 따라 베걍색을 조절함
+    else {  //휴대폰보다 큰 화면일 때는 스크롤 높이에 따라 베경색을 조절함
         $(window).scroll(function(){
             //if( $(window).scrollTop() >= $("#top".height()+$("nav").height())  ) {
             if( $(window).scrollTop() >= $("#top").height()-100 ) {
@@ -15,6 +15,7 @@ $(document).ready(function(){
             }
         });
     }
+
     //타자치는 효과
     if( $(window).width() <= 600 ) {  //모바일에서 타자치는 효과
         const $typings = "  안녕하세요.  \n유혜원의\n포트폴리오입니다.";
@@ -48,37 +49,69 @@ $(document).ready(function(){
             }
         }
         type();
-    }
+    }  ///타자치는 효과 끝
 
     //스크롤바를 내렸을 때의 효과 (== 스크롤이벤트 감지!)
-    const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
-    const port1Top = $("#port1").offset().top - 400;
-    const port2Top = $("#port2").offset().top - 400;
-    const port3Top = $("#port3").offset().top - 400;
-    //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
-    let st = 0;  //scrollTop 변수 st의 값 0으로 설정
-    $(window).scroll(function(){
-        st = $(window).scrollTop();
-        console.log(st);
-        if( st >= aboutTop ) {
-            //About에서 오른쪽 "skill" bar 애니메이션
-            $("#photo progress").delay(100).animate({value : 85});
-            $("#html progress").delay(200).animate({value : 80});
-            $("#jquery progress").delay(300).animate({value : 75});
-            $("#java progress").delay(400).animate({value : 70});
-            $("#cpp progress").delay(500).animate({value : 50});
-            $("#oven progress").delay(600).animate({value : 70});
-        }
-        if( st >= port1Top ) {
-            $("#port1").addClass("act");
-        }
-        if( st >= port2Top) {
-            $("#port2").addClass("act");
-        }
-        if( st >= port3Top) {
-            $("#port3").addClass("act");
-        }
-    });
+    if( $(window).width() <= 600 ) {  //모바일에서 스크롤바 내렸을 때 효과
+        const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
+        const port1Top = $("#port1").offset().top - 800;
+        const port2Top = $("#port2").offset().top - 800;
+        const port3Top = $("#port3").offset().top - 800;
+        //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
+        let st = 0;  //scrollTop 변수 st의 값 0으로 설정
+        $(window).scroll(function(){
+            st = $(window).scrollTop();
+            console.log(st);
+            if( st >= aboutTop ) {
+                //About에서 오른쪽 "skill" bar 애니메이션
+                $("#photo progress").delay(100).animate({value : 85});
+                $("#html progress").delay(200).animate({value : 80});
+                $("#jquery progress").delay(300).animate({value : 75});
+                $("#java progress").delay(400).animate({value : 70});
+                $("#cpp progress").delay(500).animate({value : 50});
+                $("#oven progress").delay(600).animate({value : 70});
+            }
+            if( st >= port1Top ) {
+                $("#port1").addClass("act");
+            }
+            if( st >= port2Top) {
+                $("#port2").addClass("act");
+            }
+            if( st >= port3Top) {
+                $("#port3").addClass("act");
+            }
+        });
+    }
+    else {  //PC에서 스크롤바 내렸을 때의 효과
+        const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
+        const port1Top = $("#port1").offset().top - 400;
+        const port2Top = $("#port2").offset().top - 400;
+        const port3Top = $("#port3").offset().top - 400;
+        //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
+        let st = 0;  //scrollTop 변수 st의 값 0으로 설정
+        $(window).scroll(function(){
+            st = $(window).scrollTop();
+            console.log(st);
+            if( st >= aboutTop ) {
+                //About에서 오른쪽 "skill" bar 애니메이션
+                $("#photo progress").delay(100).animate({value : 85});
+                $("#html progress").delay(200).animate({value : 80});
+                $("#jquery progress").delay(300).animate({value : 75});
+                $("#java progress").delay(400).animate({value : 70});
+                $("#cpp progress").delay(500).animate({value : 50});
+                $("#oven progress").delay(600).animate({value : 70});
+            }
+            if( st >= port1Top ) {
+                $("#port1").addClass("act");
+            }
+            if( st >= port2Top) {
+                $("#port2").addClass("act");
+            }
+            if( st >= port3Top) {
+                $("#port3").addClass("act");
+            }
+        });
+    }
     
     //이벤트 이미지를 클릭하면 큰 이미지가 나타난다
     $("#event>div>div").click(function(){
