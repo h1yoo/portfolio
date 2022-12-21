@@ -29,6 +29,10 @@ nav p {
 #menu a {
 	color:white; margin-left:20pt;
 	text-shadow:0 0 10px black;
+    display: inline-block;
+}
+#menu a:hover, #menu a.act {
+    color: #00aeff; transform: scale(1.1) translateY(-1px);
 }
 
 /*헤더(배경이미지)*/
@@ -61,7 +65,7 @@ nav p {
 .area h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 60pt;
+    margin-bottom: 60pt; margin-top: 3vh;
 }
 /*About (자기소개)*/
 #about {
@@ -81,11 +85,15 @@ nav p {
 #about p  {font-size: 0.9rem; font-weight: 300;}
 /*profile*/
 #about section:nth-child(1) {
-    flex: 1.3; padding-right: 10px;
+    flex: 1; padding-right: 10px;
 }
 /*Experiences & Education*/
 #about section:nth-child(2) {
     flex: 2;
+}
+/*Certificate*/
+#about section:nth-child(3) {
+    flex: 1;
 }
 /*skill*/
 #skill {flex: 1.3;}
@@ -94,7 +102,7 @@ nav p {
 #skill ::-webkit-progress-bar {background: #eee; height: 10px; border-radius: 5px;}
 #skill ::-webkit-progress-value {background: #00aeff; border-radius: 5px;}
 /*portfolio*/
-#portfolio {padding-left: 20pt; padding-right: 20pt; margin: auto; max-width: 90%; overflow: hidden;}
+#portfolio {padding-left: 20pt; padding-right: 20pt; margin: auto; max-width: 85%; overflow: hidden;}
 #portfolio section {display: flex;}
 #portfolio section:not(:first-of-type) {min-height: 100vh; padding-top: 20vh;}
 /*#portfolio div {border: 0px dashed orange;}*/
