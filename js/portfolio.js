@@ -81,89 +81,156 @@ $(document).ready(function(){
 
 
     //스크롤바를 내렸을 때의 효과 (== 스크롤이벤트 감지!)
-    const homeTop = $("body").offset().top;
-    const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
-    const portTop = $("#portfolio").offset().top - 400;
-    const eventTop = $("#event").offset().top - 400;
-    const contactTop = $("#contact").offset().top - 200;
-    //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
-    let st = 0;  //scrollTop 변수 st의 값 0으로 설정
-    let pos = 0;
-    $(window).scroll(function(){
-        st = $(window).scrollTop();
-        //console.log(st);
-        if( st >= homeTop && st < aboutTop ) {
-            pos = 0;
-        }
-        if( st >= aboutTop && st < portTop ) {
-            //About에서 오른쪽 "skill" bar 애니메이션
-            $("#photo progress").delay(100).animate({value : 85});
-            $("#html progress").delay(200).animate({value : 80});
-            $("#jquery progress").delay(300).animate({value : 75});
-            $("#java progress").delay(400).animate({value : 70});
-            $("#cpp progress").delay(500).animate({value : 50});
-            $("#oven progress").delay(600).animate({value : 60});
-            pos = 1;
-        }
-        if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
-            //포트폴리오 부분 슬라이드
-            let sliding = setInterval(slide, 3500);
-            let i;
-            let j = 0;//원형블릿순서
-            function slide(){
-                j++
-                $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
-                    $(this).append($(this).children().first());
-                    $(this).css("top", 0);
-                    $("#portfolio .slider-page div").eq(j).addClass("on").siblings().removeClass("on");
-                    if(j==2) {j = -1;}
-                });
-                //슬라이드 원형블릿 클릭시
-                $("#portfolio .slider-page div").click(function(){
-                    clearInterval(sliding);
-                    //alert('ddd');
-                    j = $(this).index(); //[0,1,2]
-                    //j = $("#portfolio .slider-page div.on").index(); 
-                    //alert(j);	
-                    if(j==0){i=2;}
-                    if(j==1){i=1;}		
-                    if(j==2){i=0;}
-                    //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
-                    $("#portfolio .slider-page div").stop().eq(j).addClass("on").siblings().removeClass("on");
-                    sliding = setInterval(fading, 2200);
-                });
+    if( $(window).width <= 600 ) {
+        const homeTop = $("body").offset().top;
+        const aboutTop = $("#about").offset().top - 400;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
+        const portTop = $("#portfolio").offset().top - 600;
+        const eventTop = $("#event").offset().top - 600;
+        const contactTop = $("#contact").offset().top - 400;
+        //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
+        let st = 0;  //scrollTop 변수 st의 값 0으로 설정
+        let pos = 0;
+        $(window).scroll(function(){
+            st = $(window).scrollTop();
+            //console.log(st);
+            if( st >= homeTop && st < aboutTop ) {
+                pos = 0;
             }
-            pos = 2;
-        }
-        if( st >= eventTop && st < contactTop ) {
-            pos = 3;
-        }
-        if( st >= contactTop ) {
-            pos = 4;
-        }
-        $('#menu a').eq(pos).addClass('act').siblings().removeClass('act');
-    });
+            if( st >= aboutTop && st < portTop ) {
+                //About에서 오른쪽 "skill" bar 애니메이션
+                $("#photo progress").delay(200).animate({value : 85});
+                $("#html progress").delay(300).animate({value : 80});
+                $("#jquery progress").delay(400).animate({value : 75});
+                $("#java progress").delay(500).animate({value : 70});
+                $("#cpp progress").delay(600).animate({value : 50});
+                $("#oven progress").delay(700).animate({value : 60});
+                pos = 1;
+            }
+            if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
+                //포트폴리오 부분 슬라이드
+                let sliding = setInterval(slide, 3500);
+                let i;
+                let j = 0;//원형블릿순서
+                function slide(){
+                    j++
+                    $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
+                        $(this).append($(this).children().first());
+                        $(this).css("top", 0);
+                        $("#portfolio .slider-page div").eq(j).addClass("on").siblings().removeClass("on");
+                        if(j==2) {j = -1;}
+                    });
+                    //슬라이드 원형블릿 클릭시
+                    $("#portfolio .slider-page div").click(function(){
+                        clearInterval(sliding);
+                        //alert('ddd');
+                        j = $(this).index(); //[0,1,2]
+                        //j = $("#portfolio .slider-page div.on").index(); 
+                        //alert(j);	
+                        if(j==0){i=2;}
+                        if(j==1){i=1;}		
+                        if(j==2){i=0;}
+                        //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
+                        $("#portfolio .slider-page div").stop().eq(j).addClass("on").siblings().removeClass("on");
+                        sliding = setInterval(fading, 2200);
+                    });
+                }
+                pos = 2;
+            }
+            if( st >= eventTop && st < contactTop ) {
+                pos = 3;
+            }
+            if( st >= contactTop ) {
+                pos = 4;
+            }
+            $('#menu a').eq(pos).addClass('act').siblings().removeClass('act');
+        });
+    }
+    else {
+        const homeTop = $("body").offset().top;
+        const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
+        const portTop = $("#portfolio").offset().top - 400;
+        const eventTop = $("#event").offset().top - 400;
+        const contactTop = $("#contact").offset().top - 200;
+        //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
+        let st = 0;  //scrollTop 변수 st의 값 0으로 설정
+        let pos = 0;
+        $(window).scroll(function(){
+            st = $(window).scrollTop();
+            //console.log(st);
+            if( st >= homeTop && st < aboutTop ) {
+                pos = 0;
+            }
+            if( st >= aboutTop && st < portTop ) {
+                //About에서 오른쪽 "skill" bar 애니메이션
+                $("#photo progress").delay(100).animate({value : 85});
+                $("#html progress").delay(200).animate({value : 80});
+                $("#jquery progress").delay(300).animate({value : 75});
+                $("#java progress").delay(400).animate({value : 70});
+                $("#cpp progress").delay(500).animate({value : 50});
+                $("#oven progress").delay(600).animate({value : 60});
+                pos = 1;
+            }
+            if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
+                //포트폴리오 부분 슬라이드
+                let sliding = setInterval(slide, 3500);
+                let i;
+                let j = 0;//원형블릿순서
+                function slide(){
+                    j++
+                    $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
+                        $(this).append($(this).children().first());
+                        $(this).css("top", 0);
+                        $("#portfolio .slider-page div").eq(j).addClass("on").siblings().removeClass("on");
+                        if(j==2) {j = -1;}
+                    });
+                    //슬라이드 원형블릿 클릭시
+                    $("#portfolio .slider-page div").click(function(){
+                        clearInterval(sliding);
+                        //alert('ddd');
+                        j = $(this).index(); //[0,1,2]
+                        //j = $("#portfolio .slider-page div.on").index(); 
+                        //alert(j);	
+                        if(j==0){i=2;}
+                        if(j==1){i=1;}		
+                        if(j==2){i=0;}
+                        //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
+                        $("#portfolio .slider-page div").stop().eq(j).addClass("on").siblings().removeClass("on");
+                        sliding = setInterval(fading, 2200);
+                    });
+                }
+                pos = 2;
+            }
+            if( st >= eventTop && st < contactTop ) {
+                pos = 3;
+            }
+            if( st >= contactTop ) {
+                pos = 4;
+            }
+            $('#menu a').eq(pos).addClass('act').siblings().removeClass('act');
+        });
+        
+        //이벤트 이미지를 클릭하면 큰 이미지가 나타난다
+        $("#event>div>div").click(function(){
+            //클릭한 썸네일이미지 주소를 가져온다
+            const thumb = $(this).children("img").attr("src");
+            //가져온 주소를 큰이미지주소로 변경한다.
+            const change = thumb.replace('images/', '../photoshop&illust/');
+            //변경한 이미지주소를 큰이미지에 대입한다.
+            $("#popup img").attr("src", change);
+
+            //클릭한 썸네일 이미지에서 alt값을 가져온다.
+            const alt = $(this).children("img").attr("alt");
+            //검정팝업 상단에 작품 제목
+            $("#popup h3").text(alt);
+
+            $("#popup").fadeIn();
+        });
+
+        //큰 팝업창 닫기
+        $("#popup").click(function(){
+            $(this).fadeOut();
+        });
+    }
     
-    //이벤트 이미지를 클릭하면 큰 이미지가 나타난다
-    $("#event>div>div").click(function(){
-        //클릭한 썸네일이미지 주소를 가져온다
-        const thumb = $(this).children("img").attr("src");
-        //가져온 주소를 큰이미지주소로 변경한다.
-        const change = thumb.replace('images/', '../photoshop&illust/');
-        //변경한 이미지주소를 큰이미지에 대입한다.
-        $("#popup img").attr("src", change);
-
-        //클릭한 썸네일 이미지에서 alt값을 가져온다.
-        const alt = $(this).children("img").attr("alt");
-        //검정팝업 상단에 작품 제목
-        $("#popup h3").text(alt);
-
-        $("#popup").fadeIn();
-    });
-
-    //큰 팝업창 닫기
-    $("#popup").click(function(){
-        $(this).fadeOut();
-    });
     
 }); ////////////END
