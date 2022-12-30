@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <title>유혜원의 포트폴리오</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="js/portfolio.js"></script>
 <link rel="shortcut icon" href="images/char.ico" title="파비콘">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
 				<a href="#top">Home</a>
 				<a href="#about">About</a>
 				<a href="#portfolio">Portfolio</a>
-				<a href="#event">Event</a>
+				<a href="#event">Design</a>
 				<a href="#contact">Contact</a>
 			</div>
 		</div>
@@ -27,8 +27,10 @@
 	<header id="top">
 		<div id="typing"></div>
 		<div id="click">
-			<i class="fas fa-chevron-down"></i>
-			<a href="#about">Click</a>
+			<a href="#about">
+                <i class="fas fa-chevron-down"></i>
+			    Click
+            </a>
 		</div>
 	</header>
 	<section id="about" class="area">
@@ -90,7 +92,7 @@
 					</p>
 					<p id="oven">
 						<label>OVEN, Figma</label>
-						<progress value="0" max="100">70%</progress>
+						<progress value="0" max="100">60%</progress>
 					</p>
 				</form>
 			</section>
@@ -98,7 +100,66 @@
 	</section>
 	<div id="portfolio" class="area">
 		<h2>Portfolio</h2>
-		<section id="port1">
+        <div class="cont-port">
+            <div class="slider">
+				<div class="log">
+					Scroll: Do scroll
+				</div>
+                <div class="slider-wrap">
+					<div class="slider-cell">
+						<div class="slider-cell-1 cell">
+							<div class="sliderL">
+								<a href="https://h1yoo.github.io/megabox/" target="_blank">
+									<img src="images/megabox.png" alt="메가박스웹">
+								</a>
+							</div>
+							<div class="sliderR">
+								<a href="https://h1yoo.github.io/megabox/" target="_blank">
+									<h3>메가박스<i>(웹)</i></h3>
+									<span></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="slider-cell">
+						<div class="slider-cell-2 cell">
+							<div class="sliderL">
+								<a href="https://h1yoo.github.io/hollyspc" target="_blank">
+									<img src="images/hollyspc.png" alt="할리스웹">
+								</a>
+							</div>
+							<div class="sliderR">
+								<a href="https://h1yoo.github.io/hollyspc/" target="_blank">
+									<h3>할리스<i>(웹)</i></h3>
+									<span></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="slider-cell">
+						<div class="slider-cell-3 cell">
+							<div class="sliderL gongchaL">
+								<a href="https://h1yoo.github.io/gongcha/" target="_blank">
+									<img src="images/gongchahome.png" alt="공차앱">
+								</a>
+							</div>
+							<div class="sliderR">
+								<a href="https://h1yoo.github.io/megabox/" target="_blank">
+									<h3>공차<i>(앱)</i></h3>
+									<span></span>
+								</a>
+							</div>
+						</div>
+					</div>
+                </div> <!--slider-cell부분 끝-->
+				<div class="slider-page">
+					<div class="on"><span>1</span></div>
+					<div><span>2</span></div>
+					<div><span>3</span></div>
+				</div>
+            </div>
+        </div>
+		<!--<section id="port1">
 			<div class="left">
 				<h3>메가박스</h3>
 				<ul>
@@ -125,82 +186,16 @@
 					</li>					
 				</ul>
 				<a href="plan/jomalone/index.html" target="_blank">리뉴얼 기획서</a>
-				<a href="site/swatch/index.html" target="_blank">웹사이트 바로가기</a>
+				<a href="https://h1yoo.github.io/megabox/" target="_blank">웹사이트 바로가기</a>
 				<a href="site/chania/index.html" onclick="window.open(this.href, 'win1', 'top=10, left=100 , width=414, height=740, toolbar=no, scrollbars=no, resizable=yes'); return false;"   onkeypress="this.onclick()">모바일웹 바로가기</a>
 			</div>
 			<div class="right">
 				<img src="images/megabox.png" alt="포트폴리오 메가박스">
 			</div>			
-		</section>  <!--#port1 끝-->
-		<section id="port2">
-			<div class="left">
-				<img src="images/hollyspc.png" alt="포트폴리오 할리스">
-			</div>
-			<div class="right">
-				<h3>할리스</h3>
-				<ul>
-					<li>
-						<b>사이트명</b>
-						<span>할리스커피(웹)</span>
-					</li>
-					<li>
-						<b>제작기간</b>
-						<span>2022.11.29 - 2022.12.22</span>
-					</li>
-					<li><b>
-						제작물</b>
-						<span>메인페이지와 서브페이지 (관광명소, 체험여행, 지도로 보기)</span>
-					</li>
-					<li>
-						<b>컨셉</b>
-						<span>고전적인, 향수에 젖는</span>
-					</li>
-					<li>
-						<b>컨셉설명</b>
-						<span>기존 웹사이트는 단순히 제품 설명과 이미지만 구성되어있어 브랜드 이미지와 다르게 딱딱한 느낌을 주었습니다. 때문에, 제품을 어필하는 레이아웃으로 리뉴얼하여 사용자가 제품을 친근하게 느끼고 구매로 이어질 수 있도록 만들었습니다.</span>
-					</li>
-				</ul>
-				<a href="plan/hankook/index.html" target="_blank">리뉴얼 기획서</a>
-				<a href="site/boeun/index.html" target="_blank">웹사이트 바로가기</a>		
-				<a href="site/jordan/index.html" onclick="window.open(this.href, 'win1', 'top=10, left=100 , width=375, height=740, toolbar=yes, scrollbars=no, resizable=yes'); return false;"   onkeypress="this.onclick()">모바일웹 프로토타입</a>
-			</div>
-		</section>
-		<section id="port3">
-			<div class="left">
-				<h3>Noodle Foodle</h3>
-				<ul>
-					<li>
-						<b>사이트명</b>
-						<span>누들푸들 (반응형)</span>
-					</li>
-					<li>
-						<b>제작기간</b>
-						<span>2019.07.29 - 2019.08.16</span>
-					</li>
-					<li>
-						<b>제작물</b>
-						<span>메인페이지와 서브페이지(레시피, 푸드매거진, 프랜즈, 리뷰)</span>
-					</li>
-					<li>
-						<b>컨셉</b>
-						<span>모던한, 선선한</span>
-					</li>
-					<li>
-						<b>컨셉설명</b>
-						<span>기존 웹사이트는 플래쉬를 이용한 사이트로 좁은 여백에 정보의 중요도가 구분되지 않았습니다. 때문에, 정보의 중요도를 나누고 여백을 주어 정보에 집중 할 수 있도록 메인페이지를 구성하였습니다.</span>
-					</li>
-				</ul>
-				<a href="plan/krave/index.html" target="_blank">리뉴얼 기획서</a>
-				<a href="site/everybot/index.html" target="_blank">웹사이트 바로가기</a>
-				<a href="site/fashion/index.html" onclick="window.open(this.href, 'win1', 'top=10, left=100 , width=414, height=740, toolbar=yes, scrollbars=no, resizable=yes'); return false;"   onkeypress="this.onclick()">모바일웹 바로가기</a>
-			</div>
-			<div class="right">
-				<img src="images/portfolio-3.jpg" alt="포트폴리오 태영건설">
-			</div>
-		</section>
+		</section>-->  <!--#port1 끝-->
 	</div>
 	<section id="event" class="area">
-		<h2>Event and Detail</h2>
+		<h2>Design</h2>
 		<div>
 			<div>
 				<img src="images/룰렛이벤트.jpg" alt="한번 더 룰렛을 돌려라">
