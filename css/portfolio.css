@@ -6,13 +6,13 @@
 html {scroll-behavior: smooth;}
 html, body {font: 12pt/160% 'Noto Sans KR', sans-serif; letter-spacing: -0.75pt;}
 img {display: block; max-width: 100%;}
-a   {text-decoration: none;}
+a   {text-decoration: none; color: black;}
 
 /*상단 네비게이션*/
 nav {
     position: fixed; width: 100%; /*top: 0;*/
     padding: 20pt 10pt 10pt 10pt;
-    font-weight: 700; z-index: 1;
+    font-weight: 700; z-index: 100;
 }
 nav.act {
     background: #262626;
@@ -65,7 +65,7 @@ nav p {
 .area h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 60pt; margin-top: 3vh;
+    margin-bottom: 40pt; margin-top: 3vh;
 }
 /*About (자기소개)*/
 #about {
@@ -101,11 +101,122 @@ nav p {
 #skill progress {width: 53%; -webkit-appearance: none;} /*progress는 설정 변경 불가능한데, 억지로 변경해서 경고 감수하고 변경함*/
 #skill ::-webkit-progress-bar {background: #eee; height: 10px; border-radius: 5px;}
 #skill ::-webkit-progress-value {background: #00aeff; border-radius: 5px;}
+
 /*portfolio*/
-#portfolio {padding-left: 20pt; padding-right: 20pt; margin: auto; max-width: 85%; overflow: hidden;}
+#portfolio {
+    padding: 11vh 0; margin: 0 auto;
+    max-width: 85%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+#portfolio h2 {
+    margin-bottom: 45pt;
+}
+#portfolio .cont-port {
+    position: relative;
+    width: 1100px;
+    height: 500px;
+    padding: 0; margin: 0 auto;
+    margin-bottom: 15vh;
+    box-shadow: 0 0 15px rgba(0,0,0, 0.4);
+    display: flex;
+    overflow: hidden;
+}
+#portfolio .cont-port .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#portfolio .cont-port .slider .log {
+    position: fixed;
+}
+#portfolio .cont-port .slider .slider-wrap {
+    width: 100%;
+    height: 1500px;
+}
+#portfolio .cont-port .slider .slider-cell {
+    position: relative;
+}
+#portfolio .cont-port .slider .slider-cell .cell {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    height: 500px;
+}
+#portfolio .cont-port .slider .slider-cell .sliderL {
+    width: 55%;
+    height: 100%;
+    padding-top: 17px;
+    padding-left: 7px;
+    border-right: 1px solid rgba(0,0,0, 0.1);
+}
+#portfolio .cont-port .slider .slider-cell .sliderL a {
+    width: 100%;
+    height: 100%;
+}
+#portfolio .cont-port .slider .slider-cell .sliderL img {
+    max-width: 99%;
+}
+#portfolio .cont-port .slider .slider-cell .gongchaL img {
+    max-height: 490px;
+    margin: auto;
+    margin-top: -12px;
+}
+#portfolio .cont-port .slider .slider-cell .sliderR {
+    width: 35%;
+    height: 50%;
+    margin: auto;
+}
+#portfolio .cont-port .slider .slider-cell .sliderR a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+}
+#portfolio .cont-port .slider .slider-cell .sliderR h3 {
+    margin-bottom: 30px;
+}
+#portfolio .cont-port .slider .slider-cell .sliderR h3 i {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+/*슬라이더 옆에 블릿*/
+#portfolio .cont-port .slider-page {
+    position: absolute;
+    right: 25px;
+    bottom: 15px;
+    width: 30px;
+    height: 120px;
+    z-index: 1;
+}
+#portfolio .cont-port .slider-page div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(180, 220, 237, 0.4);
+    margin: 10px;
+    padding: 0;
+    cursor: pointer;
+}
+#portfolio .cont-port .slider-page div.on {
+    background: rgb(180, 220, 237);
+    border: 3px solid dodgerblue;
+}
+#portfolio .cont-port .slider-page div span {
+    font-size: 0.8rem;
+    display: block;
+    text-align: center;
+    color:rgb(4, 146, 207);
+    padding: 0;
+}
+
+/*#portfolio {padding-left: 20pt; padding-right: 20pt; margin: auto; max-width: 85%; overflow: hidden;}
 #portfolio section {display: flex;}
 #portfolio section:not(:first-of-type) {min-height: 100vh; padding-top: 20vh;}
-/*#portfolio div {border: 0px dashed orange;}*/
+#portfolio div {border: 0px dashed orange;}
 #portfolio div.left {margin-right: 60pt;}
 #portfolio ul {list-style: none; padding-bottom: 25pt;}
 #portfolio h3 {font-size: 1.8rem; padding-bottom: 20pt;}
@@ -113,32 +224,32 @@ nav p {
 #portfolio li b {flex: 0.15;}
 #portfolio li span {flex: 0.85; text-align: justify;}
 #portfolio a {border: 1px solid #ddd; padding: 5pt 30pt 6pt 30pt; border-radius: 20pt; color: black;
-              font-weight: 500; font-size: 1rem; display: inline-block; /*반응형에서 글씨가 잘려서 다음줄로 가는 게 싫으면 display:inline-block;*/
-              margin-bottom: 5pt;
+              font-weight: 500; font-size: 1rem; display: inline-block; 반응형에서 글씨가 잘려서 다음줄로 가는 게 싫으면 display:inline-block;*/
+              /*margin-bottom: 5pt;
 }
 #portfolio div>a:nth-of-type(2) {margin-left: 5pt; margin-right: 5pt;}
-#portfolio a:hover {background: #555; color: white;}
+#portfolio a:hover {background: #555; color: white;}*/
 /*#portfolio img {transform: translateY(-40pt);} 모든 이미지를 한 번에 위로 올리려 했는데, 그러면 서서히 올라가는 효과가 이상한 것 같아서 지움*/
 /*첫 번째 포폴*/
-#port1 {padding: 10vh 0 17vh 0;
-        /*(아래에서 위로 서서히 올라온다 =>translateY(100pt)에서 20pt로*/
+/*#port1 {padding: 10vh 0 17vh 0;
+        (아래에서 위로 서서히 올라온다 =>translateY(100pt)에서 20pt로
         transform: translateY(100pt); opacity: 0; transition: 2s;
 }
 #port1.act {transform: translateY(0); opacity: 1;}
-#port1 img {transform: translateY(-40pt);}
-/*두 번째 포폴*/
+#port1 img {transform: translateY(-40pt);}*/
+/*두 번째 포폴
 #port2 div.left {transform: translateX(-50vw); transition: 2s;}
 #port2 div.right {transform: translate(50vw, 20pt); transition: 2s;}
 #port2.act div.left {transform: translateX(0);}
-#port2.act div.right {transform: translate(0, 20pt);}
-/*세 번째 포폴*/
+#port2.act div.right {transform: translate(0, 20pt);}*/
+/*세 번째 포폴
 #port3 img {transform: translateY(-40pt);}
 #port3 div.left {transform: scale(0); transition: 2s;}
 #port3 div.right {transform: scale(0); transition: 2s;}
 #port3.act div.left {transform: scale(1);}
-#port3.act div.right {transform: scale(1);}
+#port3.act div.right {transform: scale(1);}*/
 
-/*EVENT*/
+/*Event->Design*/
 #event {	
 	max-width:900px; margin:auto;
 }
@@ -209,8 +320,8 @@ nav p {
     #menu a {font-size:0.9rem;}
     #typing {font-size: 2rem;}
 
-    .area {padding-top: 17vh;}
-    .area>h2 {margin-bottom: 7vh;}
+    .area {padding-top: 11vh;}
+    .area>h2 {margin-bottom: 6vh;}
 
     #about>div {flex-direction: column; padding: 0 10pt;}
     #about img {width: 200px;}
@@ -218,8 +329,56 @@ nav p {
     #skill label {width: 38%;}
     #skill progress {width: 58%;}
 
-    #portfolio {padding-left: 10px; padding-right: 10px;}
-    #portfolio div.left {margin-right: 0;}
+    #portfolio h2 {
+        margin-bottom: 5vh;
+    }
+    #portfolio .cont-port {
+        width: 85%;
+        height: 550px;
+    }
+    #portfolio .cont-port .slider .slider-cell {
+        width: 100%;
+        height: 100%;
+    }
+    #portfolio .cont-port .slider .slider-cell .cell {
+        flex-direction: column;
+    }
+    #portfolio .cont-port .slider .slider-cell .sliderL {
+        width: 100%;
+        height: 55%;
+        padding-top: 12px;
+        padding-left: 3px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0, 0.1);
+    }
+    #portfolio .cont-port .slider .slider-cell .sliderR {
+        width: 95%;
+        height: 45%;
+    }
+    #portfolio .cont-port .slider .slider-cell .sliderR a {
+        padding-top: 30px;
+    }
+    #portfolio .cont-port .slider .slider-cell .sliderR h3 {
+        margin-bottom: 15px;
+    }
+    /*슬라이더 밑에 블릿*/
+    #portfolio .slider-page {
+        width: 150px !important;
+        height: 20px !important;
+        bottom: 25px !important;
+        display:flex;
+        left: 25%;
+        padding-left: 20px;
+    }
+    #portfolio .slider-page div {
+        width: 15px !important;
+        height: 15px !important;
+    }
+    #portfolio .slider-page div span {
+        display: none;
+    }
+
+    /*#portfolio div.left {margin-right: 0;}
     #portfolio section {flex-direction: column;}
     #portfolio section:nth-of-type(odd) div.left {order: 2;}
     #portfolio section:nth-of-type(odd) div.right {order: 1;}
@@ -237,7 +396,7 @@ nav p {
     #port3 {padding-top: 5vh;}
     #port3 img {transform: translateY(0);}
     #port3 div.left {padding-top: 5vh; transform: scale(1);}
-    #port3 div.right {transform: scale(1);}
+    #port3 div.right {transform: scale(1);}*/
 
     #event>div>div {width: 90%;}
     #event img {width: 100%;}
