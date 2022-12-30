@@ -213,42 +213,6 @@ nav p {
     padding: 0;
 }
 
-/*#portfolio {padding-left: 20pt; padding-right: 20pt; margin: auto; max-width: 85%; overflow: hidden;}
-#portfolio section {display: flex;}
-#portfolio section:not(:first-of-type) {min-height: 100vh; padding-top: 20vh;}
-#portfolio div {border: 0px dashed orange;}
-#portfolio div.left {margin-right: 60pt;}
-#portfolio ul {list-style: none; padding-bottom: 25pt;}
-#portfolio h3 {font-size: 1.8rem; padding-bottom: 20pt;}
-#portfolio li {display: flex; padding-bottom: 5pt;}
-#portfolio li b {flex: 0.15;}
-#portfolio li span {flex: 0.85; text-align: justify;}
-#portfolio a {border: 1px solid #ddd; padding: 5pt 30pt 6pt 30pt; border-radius: 20pt; color: black;
-              font-weight: 500; font-size: 1rem; display: inline-block; 반응형에서 글씨가 잘려서 다음줄로 가는 게 싫으면 display:inline-block;*/
-              /*margin-bottom: 5pt;
-}
-#portfolio div>a:nth-of-type(2) {margin-left: 5pt; margin-right: 5pt;}
-#portfolio a:hover {background: #555; color: white;}*/
-/*#portfolio img {transform: translateY(-40pt);} 모든 이미지를 한 번에 위로 올리려 했는데, 그러면 서서히 올라가는 효과가 이상한 것 같아서 지움*/
-/*첫 번째 포폴*/
-/*#port1 {padding: 10vh 0 17vh 0;
-        (아래에서 위로 서서히 올라온다 =>translateY(100pt)에서 20pt로
-        transform: translateY(100pt); opacity: 0; transition: 2s;
-}
-#port1.act {transform: translateY(0); opacity: 1;}
-#port1 img {transform: translateY(-40pt);}*/
-/*두 번째 포폴
-#port2 div.left {transform: translateX(-50vw); transition: 2s;}
-#port2 div.right {transform: translate(50vw, 20pt); transition: 2s;}
-#port2.act div.left {transform: translateX(0);}
-#port2.act div.right {transform: translate(0, 20pt);}*/
-/*세 번째 포폴
-#port3 img {transform: translateY(-40pt);}
-#port3 div.left {transform: scale(0); transition: 2s;}
-#port3 div.right {transform: scale(0); transition: 2s;}
-#port3.act div.left {transform: scale(1);}
-#port3.act div.right {transform: scale(1);}*/
-
 /*Event->Design*/
 #event {	
 	max-width:900px; margin:auto;
@@ -345,15 +309,19 @@ nav p {
     }
     #portfolio .cont-port .slider .slider-cell .sliderL {
         width: 100%;
-        height: 55%;
+        height: 50%;
         padding-top: 12px;
         padding-left: 3px;
         border-right: none;
         border-bottom: 1px solid rgba(0,0,0, 0.1);
     }
+    #portfolio .cont-port .slider .slider-cell .gongchaL img {
+        max-width: 80%;
+        margin-top: 1pt;
+    } 
     #portfolio .cont-port .slider .slider-cell .sliderR {
         width: 95%;
-        height: 45%;
+        height: 50%;
     }
     #portfolio .cont-port .slider .slider-cell .sliderR a {
         padding-top: 30px;
@@ -375,28 +343,8 @@ nav p {
         height: 15px !important;
     }
     #portfolio .slider-page div span {
-        display: none;
+        display: none !important;
     }
-
-    /*#portfolio div.left {margin-right: 0;}
-    #portfolio section {flex-direction: column;}
-    #portfolio section:nth-of-type(odd) div.left {order: 2;}
-    #portfolio section:nth-of-type(odd) div.right {order: 1;}
-    #portfolio section:not(:first-of-type) {padding-top: 0; margin-top: 0;}
-    #portfolio ul {padding-bottom: 10pt;}
-    #portfolio li {flex-direction: column;}
-    #portfolio a {padding: 4pt 6pt 5pt 6pt;}
-
-    #port1 {padding-top: 5vh; transform: translateY(0); opacity: 1;}
-
-    #port2 {padding-bottom: 100pt;}
-    #port2 div.left {transform: translateX(0);}
-    #port2 div.right {transform: translate(0, 10vh);}
-
-    #port3 {padding-top: 5vh;}
-    #port3 img {transform: translateY(0);}
-    #port3 div.left {padding-top: 5vh; transform: scale(1);}
-    #port3 div.right {transform: scale(1);}*/
 
     #event>div>div {width: 90%;}
     #event img {width: 100%;}
