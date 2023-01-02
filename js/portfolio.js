@@ -16,10 +16,6 @@ $(document).ready(function(){
         });
     }
 
-    //클릭 위의 아이콘 누르면 #about으로 이동하게 하기
-    $("#click i").click(function() {
-        
-    });
 
     //타자치는 효과
     if( $(window).width() <= 600 ) {  //모바일에서 타자치는 효과
@@ -56,10 +52,25 @@ $(document).ready(function(){
         type();
     }  ///타자치는 효과 끝
 
+
     /////상단 메뉴 호버 활성화 유지
     $('#menu a').click(function(){
         $(this).addClass('act').siblings().removeClass('act');
     });
+    
+
+    //슬라이드 일시정지/재생 아이콘 클릭 시
+    $('#portfolio span.pnp').click(function(){
+        if( $(this).text() == 'pause_circle') {  //일시정지 아이콘 클릭 시
+            $(this).text('play_circle');
+            //clearInterval(sliding);
+        }
+        else {  //재생 아이콘 클릭 시
+            $(this).text('pause_circle');
+            //setInterval(slidng, 3000);
+        }
+    });
+
 
     //포트폴리오 부분 글씨 PC와 모바일에 따라 다르게
     if( $(window).width() <= 600 ) {  //포트폴리오1
@@ -107,46 +118,34 @@ $(document).ready(function(){
                 pos = 1;
             }
             if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
-                //포트폴리오 부분 슬라이드
-                let sliding = setInterval(slide, 3000);
-                let i = 0;
-                let j = 0; //원형블릿순서
-                function slide(){
-                    j++;
-                    $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
-                        $(this).append($(this).children().first());
-                        $(this).css("top", 0);
-                        $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                        if(j==2) {j = -1;}
-                    });
-                }
-                /////////////////
-                //슬라이드 원형블릿 클릭시
-                $("#portfolio .slider-circle div").click(function(){
-                    clearInterval(sliding);
-                    //alert('ddd');
-                    j = $(this).index(); //[0,1,2]
-                    //j = $("#portfolio .slider-page div.on").index(); 
-                    //alert(j);	
-                    if(j==0){i=2;}
-                    if(j==1){i=1;}		
-                    if(j==2){i=0;}
-                    //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
+            //포트폴리오 부분 슬라이드
+            let sliding = setInterval(slide, 3000);
+            let i = 0;
+            let j = 0; //원형블릿순서
+            function slide(){
+                j++;
+                $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
+                    $(this).append($(this).children().first());
+                    $(this).css("top", 0);
                     $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                    //sliding = setInterval(slide, 3000);
+                    if(j==2) {j = -1;}
                 });
-                ////////////////////////////
-                //슬라이드 일시정지/재생 아이콘 클릭 시
-                $('#portfolio span.pnp').click(function(){
-                    if( $(this).text() == 'pause_circle') {  //일시정지 아이콘 클릭 시
-                        $(this).text('play_circle');
-                        //clearInterval(sliding);
-                    }
-                    else {  //재생 아이콘 클릭 시
-                        $(this).text('pause_circle');
-                        //setInterval(slidng, 3000);
-                    }
-                });
+            }
+            ///////슬라이드 원형블릿 클릭시
+            $("#portfolio .slider-circle div").click(function(){
+                clearInterval(sliding);
+                //alert('ddd');
+                j = $(this).index(); //[0,1,2]
+                //j = $("#portfolio .slider-page div.on").index(); 
+                //alert(j);	
+                if(j==0){i=2;}
+                if(j==1){i=1;}		
+                if(j==2){i=0;}
+                //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
+                $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
+                sliding = setInterval(slide, 3000);
+            });
+            
             pos = 2;
             }
             if( st >= eventTop && st < contactTop ) {
@@ -161,8 +160,8 @@ $(document).ready(function(){
     else {  ///////PC 데스크탑에서의 스크롤 이벤트
         const homeTop = $("body").offset().top;
         const aboutTop = $("#about").offset().top;  //해당 콘텐츠의 top값을 '절대값'으로 얻어온다.
-        const portTop = $("#portfolio").offset().top - 400;
-        const eventTop = $("#event").offset().top - 400;
+        const portTop = $("#portfolio").offset().top -200;
+        const eventTop = $("#event").offset().top - 200;
         const contactTop = $("#contact").offset().top - 200;
         //==>상대값은 position()이고 절대값은 offset()  => 상대값은 기준이 부모이고 절대값은 기준이 윈도우
         let st = 0;  //scrollTop 변수 st의 값 0으로 설정
@@ -197,8 +196,7 @@ $(document).ready(function(){
                         if(j==2) {j = -1;}
                     });
                 }
-                /////////////////
-                //슬라이드 원형블릿 클릭시
+                ///////슬라이드 원형블릿 클릭시
                 $("#portfolio .slider-circle div").click(function(){
                     clearInterval(sliding);
                     //alert('ddd');
@@ -210,19 +208,7 @@ $(document).ready(function(){
                     if(j==2){i=0;}
                     //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
                     $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                    //sliding = setInterval(slide, 3000);
-                });
-                ////////////////////////////
-                //슬라이드 일시정지/재생 아이콘 클릭 시
-                $('#portfolio span.pnp').click(function(){
-                    if( $(this).text() == 'pause_circle') {  //일시정지 아이콘 클릭 시
-                        $(this).text('play_circle');
-                        //clearInterval(sliding);
-                    }
-                    else {  //재생 아이콘 클릭 시
-                        $(this).text('pause_circle');
-                        //setInterval(slidng, 3000);
-                    }
+                    sliding = setInterval(slide, 3000);
                 });
                 pos = 2;
             }
@@ -232,7 +218,7 @@ $(document).ready(function(){
             if( st >= contactTop ) {
                 pos = 4;
             }
-            $('#menu a').eq(pos).addClass('act').siblings().removeClass('act');
+            $('#menu a').siblings().removeClass('act').eq(pos).addClass('act');
         });
         
         //이벤트 이미지를 클릭하면 큰 이미지가 나타난다
