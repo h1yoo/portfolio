@@ -65,7 +65,7 @@ nav p {
 .area h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 40pt; margin-top: 3vh;
+    margin-bottom: 50pt; margin-top: 4vh;
 }
 /*About (자기소개)*/
 #about {
@@ -74,7 +74,7 @@ nav p {
 #about img {width: 220pt; margin: auto;}
 #about>p {max-width: 200pt; margin: auto; text-align: center; margin-top: 10px;}
 #about mark {background: #ccc; font-size: 0.8rem;}
-#about span {transform: translateX(-15px); display: inline-block;}
+#about span {transform: translateX(-9.5pt); display: inline-block;}
 
 /*profile / Experiences & Education / skill*/
 #about>div {
@@ -108,15 +108,18 @@ nav p {
 /*skill*/
 #skill {flex: 1.3;}
 #skill label {font-size: 0.8rem; font-weight: 400; display: inline-block; width: 45%;}
-#skill progress {width: 53%; -webkit-appearance: none;} /*progress는 설정 변경 불가능한데, 억지로 변경해서 경고 감수하고 변경함*/
-#skill ::-webkit-progress-bar {background: #eee; height: 10px; border-radius: 5px;}
-#skill ::-webkit-progress-value {background: #00aeff; border-radius: 5px;}
+#skill progress {
+    width: 53%;
+    -webkit-appearance: none;/*progress는 설정 변경 불가능한데, 경고 감수하고 억지로 변경함*/
+} 
+#skill ::-webkit-progress-bar {background: #eee; height: 10px; border-radius: 3px;}
+#skill ::-webkit-progress-value {background: #777; border-radius: 3px;}
 
 /*portfolio*/
 #portfolio {
     padding: 11vh 0; margin: 0 auto;
     max-width: 85%;
-    height: 600px;
+    height: 700px;
     overflow: hidden;
     position: relative;
 }
@@ -131,23 +134,26 @@ nav p {
     margin-bottom: 15vh;
     box-shadow: 0 0 15px rgba(0,0,0, 0.4);
     display: flex;
-    overflow: hidden;
 }
 #portfolio .cont-port .slider {
     position: relative;
     width: 100%;
     height: 100%;
-}
-#portfolio .cont-port .slider .log {
-    position: fixed;
+    overflow: hidden;
 }
 #portfolio .cont-port .slider .slider-wrap {
     width: 100%;
-    height: 1500px;
-}
-#portfolio .cont-port .slider .slider-cell {
+    /*height: 1500px;*/
     position: relative;
 }
+#portfolio .cont-port .slider .slider-cell {
+    /*position: absolute;*/
+    width: 100%;
+    height: 500px;
+}
+/*#portfolio .cont-port .slider .slider-cell:not(:first-of-type) {
+    top: 500px;
+}*/
 #portfolio .cont-port .slider .slider-cell .cell {
     display: flex;
     text-align: center;
@@ -160,6 +166,9 @@ nav p {
     padding-top: 17px;
     padding-left: 7px;
     border-right: 1px solid rgba(0,0,0, 0.1);
+}
+#portfolio .cont-port .slider .slider-cell .sliderL:hover {
+    background: #555;
 }
 #portfolio .cont-port .slider .slider-cell .sliderL a {
     width: 100%;
@@ -288,8 +297,26 @@ nav p {
 	position:fixed; background:rgba(0,0,0, 0.9); z-index:1;
 	top:0; width:100vw; height:100vh; overflow:auto;  display:none;
 }
+#popup div {
+    background: transparent;
+    height: 80px;
+    display: flex;
+}
 #popup h3 {
-	color:white; text-align:center; padding:15pt;
+	color:white; text-align:center;
+    padding: 15pt;
+    padding-top: 20pt;
+    margin-left: 115pt;
+    width: 80%;
+}
+#popup span {
+    position: absolute;
+    right: 20px; top: 14px;
+    padding: 10px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 #popup img {
 	margin:auto; max-width:1200px; min-width:60%;
@@ -311,7 +338,7 @@ nav p {
     #typing {font-size: 2rem;}
 
     .area {padding-top: 11vh;}
-    .area>h2 {margin-bottom: 6vh;}
+    .area>h2 {margin-bottom: 7vh;}
 
 
     #about>div {flex-direction: column; padding: 0 10pt;}
@@ -330,11 +357,11 @@ nav p {
     }
 
     #portfolio h2 {
-        margin-bottom: 5vh;
+        margin-bottom: 7vh;
     }
     #portfolio .cont-port {
         width: 85%;
-        height: 550px;
+        height: 500px;
     }
     #portfolio .cont-port .slider .slider-cell {
         width: 100%;
@@ -361,7 +388,7 @@ nav p {
         padding-bottom: 10px;
     }
     #portfolio .cont-port .slider .slider-cell .sliderR a {
-        padding-top: 30px;
+        padding-top: 20px;
     }
     #portfolio .cont-port .slider .slider-cell .sliderR h3 {
         margin-bottom: 15px;
@@ -370,7 +397,7 @@ nav p {
     #portfolio .slider-page {
         width: 150px !important;
         height: 30px !important;
-        bottom: 20px !important;
+        bottom: 5px !important;
         left: 29%;
         display:flex;
     }
@@ -398,5 +425,13 @@ nav p {
 
     #contact div {padding-top: 6vh;}
 
+    #popup h3 {
+        margin-left: 25pt;
+    }
+    #popup span {
+        padding: 5px;
+        top: 20px;
+        font-size: 1.8rem;
+    }
     #popup img {width: 100%;}
 }
