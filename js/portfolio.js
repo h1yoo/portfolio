@@ -57,21 +57,56 @@ $(document).ready(function(){
     $('#menu a').click(function(){
         $(this).addClass('act').siblings().removeClass('act');
     });
-    
 
+	
+	
+	///////////////////////////////////////////
+
+    //포트폴리오 부분 슬라이드
+	let i = $(".slider-circle .on").index();   /////일회성. 한 번 밖에 못 받아옴
+	 
+	let sliding = setInterval(slide, 3000, i);
+
+    //슬라이드 원형블릿 클릭시
+    $("#portfolio .slider-circle div").click(function(){
+		clearInterval(sliding);
+        i = $(this).index();		
+        slide(i);
+    });
+	
+    ////슬라이드 함수
+    function slide(i){	
+		clearInterval(sliding);
+		$(".slider-circle div").eq(i).addClass('on').siblings().removeClass("on");
+        const j = i * 500 * (-1);   //0, -500, -1000 (위로 500px씩 올라감)		
+		// console.log(j);
+		$("#portfolio .slider-wrap").stop().animate({top:j}, "fast");
+		i++;
+		if(i>2) {i=0;}
+		//console.log(i);
+		
+		sliding = setInterval(slide, 3500, i);		
+    }	
+	
+	 
     //슬라이드 일시정지/재생 아이콘 클릭 시
-    $('#portfolio span.pnp').click(function(){
+    $('#portfolio button.pnp').click(function(){
         if( $(this).text() == 'pause_circle') {  //일시정지 아이콘 클릭 시
             $(this).text('play_circle');
-            //clearInterval(sliding);
+			clearInterval(sliding);
         }
         else {  //재생 아이콘 클릭 시
             $(this).text('pause_circle');
-            //setInterval(slidng, 3000);
+			i = $(".slider-circle .on").index();			
+			if(i>2) {i=0;}
+			sliding = setInterval(slide, 3500, i);
         }
     });
+	
+	
+	
 
-
+	////////////////////////////////////////////
     //포트폴리오 부분 글씨 PC와 모바일에 따라 다르게
     if( $(window).width() <= 600 ) {  //포트폴리오1
         const $typing1 = "메가박스 홈페이지를 따라 만들었습니다.\n포스터 이미지가 호버되면 줄거리가\n나오게 했고, 메인 메뉴에 호버되면\n메인 메뉴 글씨 아래에 하얀색 줄이\n생기면서 서브 메뉴가 보이도록\n하였습니다.";
@@ -117,34 +152,9 @@ $(document).ready(function(){
                 $("#oven progress").delay(700).animate({value : 60});
                 pos = 1;
             }
-            if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
-            //포트폴리오 부분 슬라이드
-            let sliding = setInterval(slide, 3000);
-            let i = 0;
-            let j = 0; //원형블릿순서
-            function slide(){
-                j++;
-                $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
-                    $(this).append($(this).children().first());
-                    $(this).css("top", 0);
-                    $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                    if(j==2) {j = -1;}
-                });
-            }
-            ///////슬라이드 원형블릿 클릭시
-            $("#portfolio .slider-circle div").click(function(){
-                clearInterval(sliding);
-                //alert('ddd');
-                j = $(this).index(); //[0,1,2]
-                //j = $("#portfolio .slider-page div.on").index(); 
-                //alert(j);	
-                if(j==0){i=2;}
-                if(j==1){i=1;}		
-                if(j==2){i=0;}
-                //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
-                $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                sliding = setInterval(slide, 3000);
-            });
+            if( st >= portTop ) {  
+            /*//포트폴리오 부분 슬라이드
+            위에 공통으로 작성*/
             
             pos = 2;
             }
@@ -182,34 +192,7 @@ $(document).ready(function(){
                 $("#oven progress").delay(600).animate({value : 60});
                 pos = 1;
             }
-            if( st >= portTop ) {  //포트폴리오 부분으로 스크롤바 내리면 슬라이드 효과 실행. 벗어나면 슬라이드 효과 해제 ==> 아직 구현 안함
-                //포트폴리오 부분 슬라이드
-                let sliding = setInterval(slide, 3000);
-                let i = 0;
-                let j = 0; //원형블릿순서
-                function slide(){
-                    j++;
-                    $('#portfolio .slider-wrap').stop().animate({top:'-500px'}, "slow", function(){
-                        $(this).append($(this).children().first());
-                        $(this).css("top", 0);
-                        $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                        if(j==2) {j = -1;}
-                    });
-                }
-                ///////슬라이드 원형블릿 클릭시
-                $("#portfolio .slider-circle div").click(function(){
-                    clearInterval(sliding);
-                    //alert('ddd');
-                    j = $(this).index(); //[0,1,2]
-                    //j = $("#portfolio .slider-page div.on").index(); 
-                    //alert(j);	
-                    if(j==0){i=2;}
-                    if(j==1){i=1;}		
-                    if(j==2){i=0;}
-                    //$("#portfolio .slider .cell").stop().eq(j).fadeIn("fast").siblings().fadeOut("fast");
-                    $("#portfolio .slider-circle div").eq(j).addClass("on").siblings().removeClass("on");
-                    sliding = setInterval(slide, 3000);
-                });
+            if( st >= portTop ) {   
                 pos = 2;
             }
             if( st >= eventTop && st < contactTop ) {
@@ -220,7 +203,8 @@ $(document).ready(function(){
             }
             $('#menu a').siblings().removeClass('act').eq(pos).addClass('act');
         });
-        
+
+
         //이벤트 이미지를 클릭하면 큰 이미지가 나타난다
         $("#event>div>div").click(function(){
             //클릭한 썸네일이미지 주소를 가져온다
@@ -236,11 +220,15 @@ $(document).ready(function(){
             $("#popup h3").text(alt);
 
             $("#popup").fadeIn();
+
+            $("body>nav").fadeOut();
         });
 
         //큰 팝업창 닫기
         $("#popup").click(function(){
-            $(this).fadeOut();
+            $("body>nav").fadeIn();
+
+            $(this).fadeOut();            
         });
     }
     
