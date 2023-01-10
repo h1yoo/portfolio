@@ -119,12 +119,12 @@ nav p {
 #portfolio {
     padding: 11vh 0; margin: 0 auto;
     max-width: 85%;
-    height: 600px;
+    height: 650px;
     overflow: hidden;
     position: relative;
 }
 #portfolio h2 {
-    margin-bottom: 70pt;
+    margin-bottom: 80pt;
 }
 #portfolio .cont-port {
     position: relative;
