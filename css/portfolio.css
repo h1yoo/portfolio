@@ -65,7 +65,7 @@ nav p {
 .area h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 50pt; margin-top: 4vh;
+    margin-bottom: 70pt; margin-top: 4vh;
 }
 /*About (자기소개)*/
 #about {
@@ -124,7 +124,7 @@ nav p {
     position: relative;
 }
 #portfolio h2 {
-    margin-bottom: 45pt;
+    margin-bottom: 60pt;
 }
 #portfolio .cont-port {
     position: relative;
